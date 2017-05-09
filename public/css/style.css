@@ -54,7 +54,7 @@ ol.breadcrumb li.active{
 .navigation-strip h4 {
 	float: left;
 	color: #fff;
-	font-size: 1.3em;
+	font-size: 1.1em;
 	font-weight: 300;
 	margin-top: 5px;
 }
@@ -66,7 +66,7 @@ ol.breadcrumb li.active{
 	border-bottom: 1px solid rgb(236, 236, 236);
 	font-size: 1em;
 	color: #000;
-	line-height: 1.8em;
+	line-height: 1.5em;
 	text-transform: uppercase;
 	margin-bottom: 4%;
 	width: 100%;
@@ -134,7 +134,7 @@ i.arrow{
 }
 .carting{
 	float:left;
-	margin-top:3em;
+	margin-top:2.5em;
 }
 .carting ul li{
 	display:inline-block;
@@ -143,7 +143,7 @@ i.arrow{
 	font-family: Constantine Bold;
 	display:block;
 	color:#ba8e2d;
-	font-size:14px;
+	font-size:12px;
 	font-weight:600;
 	padding:0 8px;
 }
@@ -151,7 +151,7 @@ i.arrow{
 	display: inline-block;
 	margin: 2em 0;
 	position:absolute;
-	left: 37%;
+	left: 35%;
 }
 .logo h3 a{
 	font-family: Constantine Bold;
@@ -169,15 +169,12 @@ i.arrow{
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
-  top: 45%;
-	
-
+  top: 40%;
 }
 .caption h1{
 	font-size:6em;
 	font-weight:50;
 	margin-bottom:2px;
-	/*font-family: Diam;*/
 	font-family: 'Yellowtail', cursive;
 	color: #ba8e2d;
 }
@@ -601,8 +598,8 @@ i.boque{
 }
 .fotter-logo h3 a{
 	font-family: Arial, Helvetica, sans-serif;
-	font-size:1em;
-	font-weight:500;
+	font-size:0.6em;
+	font-weight:200;
 	color:black;
 	text-decoration:none;
 }
@@ -2187,7 +2184,7 @@ color:#3C3B3B;
 }
 @media(max-width:1366px){
 .caption {
-  left: 4%;
+  left: -4%;
 }
 .megamenu>li>a {
   padding: 9px 63px!important;
