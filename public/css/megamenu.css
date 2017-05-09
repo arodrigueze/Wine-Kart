@@ -63,19 +63,19 @@
 .skyblue .megapanel img:hover,.skyblue form.contact input[type="text"]:focus,.skyblue form.contact textarea:focus{}
 .skyblue form.contact input[type="submit"]{background:#00405d;text-transform:uppercase;}
 @media(max-width:1024px){
-	.megamenu {margin-left: 0%;}
+	.megamenu {margin-left: 0%;padding-left: 0px;}
 	.megamenu>li>a {
   padding: 9px 46.4px!important;
 }
 }
 @media(max-width:800px){
-	.megamenu {margin-left: 0%;}
+	.megamenu {margin-left: 0%;padding-left: 0px;}
 	.megamenu>li>a {
 		padding: 8px 8px;
 	}
 }
 @media(max-width:768px){
-	.megamenu {margin-left: 0%;}
+	.megamenu {margin-left: 0%;padding-left: 0px;}
 	.megamenu>li{margin-left: 0%;display:block;width:100%;border-bottom:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
 	.megamenu>li:hover,.megamenu>li.active{border-top:0}
 	.megamenu a{width:100%;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
@@ -111,7 +111,7 @@
 	}
 }
 @media (max-width: 736px){
-	.megamenu {margin-left: 0%;}
+	.megamenu {margin-left: 0%;padding-left: 0px;}
 .megamenu>li>a {
   font-size:14px;
 }
