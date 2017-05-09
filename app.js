@@ -14,6 +14,8 @@ var single   = require('./routes/single');
 var login    = require('./routes/login');
 var cart     = require('./routes/cart');
 var registration = require('./routes/registration');
+var loginAdmin = require('./routes/loginAdmin');
+var addProdCat = require('./routes/addProdCat');
 var app      = express();
 
 
@@ -39,6 +41,8 @@ mongoose.connect("mongodb://vinestoreuser:vinestoreuser@ds123361.mlab.com:23361/
 });
 
 app.use('/', index);
+app.use('/', loginAdmin);
+app.use('/', addProdCat);
 app.use('/', cart);
 app.use('/',category);
 app.use('/',about);

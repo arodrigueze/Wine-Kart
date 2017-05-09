@@ -15,7 +15,7 @@
 <script src="js/jquery.easydropdown.js"></script>		
 <script src="js/jquery.min.js"></script>
 <script src="js/simpleCart.min.js"> </script>
-<script src="js/registrationJS.js"> </script>
+<script src="js/addProdCatJS.js"> </script>
 <script type="text/javascript" src="js/avgrund.js"></script>
 <!-- start menu -->
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
@@ -38,7 +38,7 @@
 				<h3><a href="/">WINE STORE</a></h3>
 			</div>			  
 			<div class="box_1">				 
-				<a href="/cart"><h3>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)<img src="images/cart.png" alt=""/></h3></a>
+				<a href="/cart"><h3>Cart:  <img src="images/cart.png" alt=""/></h3></a>
 				<p><a href="#" id="usernameonpage">Bienvenido</a></p>
 			</div>
 			<div class="clearfix"></div>
@@ -68,48 +68,90 @@
 <div class="registration-form">
 	 <div class="container">
 		 <ol class="breadcrumb">
-		  <li><a href="/">Home</a></li>
-		  <li class="active">Registro</li>
+		  <li><a>Home</a></li>
+		  <li class="active">Agregar Productos y Categorias</li>
 		 </ol>
-		 <h2>Registro</h2>
-		 <div class="col-md-6 reg-form">
+		 <h2>Registrar Producto</h2>
+		 <div class="col-md-8 reg-form">
 			 <div class="reg">
 				 <p>Bienvenido, por favor ingresa los siguientes datos.</p>
 				 <form id="registrationForm">
 					 <ul>
-						 <li class="text-info">Nombre de Usuario: </li>
-						 <li><input type="text" value="" id="usernameRG"></li>
+						 <li class="text-info">Nombre de producto: </li>
+						 <li><input type="text" value="" id="name"></li>
 					 </ul>
 					 <ul>
-						 <li class="text-info">Nombre: </li>
-						 <li><input type="text" value="" id="nameRG"></li>
+						 <li class="text-info">Descripcion: </li>
+						 <li><input type="text" value="" id="description"></li>
 					 </ul>				 
 					<ul>
-						 <li class="text-info">Email: </li>
-						 <li><input type="text" value="" id="emailRG"></li>
+						 <li class="text-info">Precio: </li>
+						 <li><input type="text" value="" id="price"></li>
 					 </ul>
 					 <ul>
-						 <li class="text-info">Password: </li>
-						 <li><input type="password" value="" id="pass1RG"></li>
+						 <li class="text-info">Categoria: </li>
+						 <li><input type="password" value="" id="category"></li>
 					 </ul>
 					 <ul>
-						 <li class="text-info">Re-enter Password:</li>
-						 <li><input type="password" value="" id="pass2RG"></li>
+						 <li class="text-info">imagen 1:</li>
+						 <li><input type="file" value="" id="img1"></li>
+					 </ul>
+					 <ul>
+						 <li class="text-info">imagen 2:</li>
+						 <li><input type="file" value="" id="img2"></li>
+					 </ul>
+					 <ul>
+						 <li class="text-info">imagen 3:</li>
+						 <li><input type="file" value="" id="img3"></li>
+					 </ul>
+					 <ul>
+						 <li class="text-info">imagen 4:</li>
+						 <li><input type="file" value="" id="img4"></li>
+					 </ul>
+					 <ul>
+						 <li class="text-info">imagen 5:</li>
+						 <li><input type="file" value="" id="img5"></li>
 					 </ul>
 					
-					 <input type="button" class="item_add items" value="Registrate ahora!" id="submitbtn">
+					 <input type="button" class="item_add items" value="Registrate ahora!" id="submitbtnProd">
 					 
 				 </form>
 			 </div>
 		 </div>
-		 <div class="col-md-6 reg-right">
+		 <div class="col-md-4 reg-right">
 			 <h3>Cuenta gratuita</h3>
 			 <p>Al crear esta cuenta tus datos personales solo se utilizan para obtener descuentos en nuestra tienda en linea.</p>
 		 </div>
-		 <div class="col-md-6 reg-right">
-			 <h3 id="regisStatus"></h3>
+		 <div class="col-md-4 reg-right">
+			 <h3 id="regisProdStatus"></h3>
 		 </div>
-		 <div class="clearfix"></div>		 
+		 <div class="clearfix"></div>	
+		 <ol class="breadcrumb">
+		  <li></li>
+		  <li class="active"></li>
+		 </ol>
+		 <h2>Registrar Categoria</h2>
+		 <div class="col-md-8 reg-form">
+			 <div class="reg">
+				 <p>Bienvenido, por favor ingresa los siguientes datos.</p>
+				 <form id="registrationForm">
+					 <ul>
+						 <li class="text-info">Nombre de Categoria: </li>
+						 <li><input type="text" value="" id="nameCat"></li>
+					 </ul>
+					
+					 <input type="button" class="item_add items" value="Registrate ahora!" id="submitbtnCat">
+					 
+				 </form>
+			 </div>
+		 </div>
+		 <div class="col-md-4 reg-right">
+			 <h3>Cuenta gratuita</h3>
+			 <p>Al crear esta cuenta tus datos personales solo se utilizan para obtener descuentos en nuestra tienda en linea.</p>
+		 </div>
+		 <div class="col-md-4 reg-right">
+			 <h3 id="regisCatStatus"></h3>
+		 </div>	 
 	 </div>
 </div>
 <!--fotter-->

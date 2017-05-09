@@ -1,5 +1,10 @@
 $(document).ready(function () {
     console.log("registro listo para realizar!");
+
+    if (localStorage.username) {
+        $('#usernameonpage').text("Bienvenido "+localStorage.username);
+    }
+
     var usuarios;
     var usernameControl;
 
@@ -7,6 +12,16 @@ $(document).ready(function () {
         usuarios = data;
     });
 
+    $('#closeDiag').click(function () {
+        Avgrund.hide();
+        window.location.replace("/login");
+    });
+
+    $('#logout').click(function () {
+        localStorage.removeItem("username");
+        localStorage.removeItem("type");
+        $('#usernameonpage').text("Bienvenido");
+    });
 
     $('#submitbtn').click(function () {
         if ($('#pass1RG').val().localeCompare("") == 0 || $('#pass2RG').val().localeCompare("") == 0 || $('#emailRG').val().localeCompare("") == 0 || $('#nameRG').val().localeCompare("") == 0 || $('#usernameRG').val().localeCompare("") == 0) {
@@ -40,22 +55,19 @@ $(document).ready(function () {
                         dataType: 'json',
                         data: { info: JSON.stringify(dataUser) }
                     }).done(function (msg) {
-                        console.log(msg);
-                    });
-                    $('#regisStatus').hide("slow", function () {
-                        $('#regisStatus').text('Usuario Registrado correctamente.').show("slow");
-                        $('#usernameRG').val("");
-                        $('#nameRG').val("");
-                        $('#emailRG').val("");
-                        $('#pass1RG').val("");
-                        $('#pass2RG').val("");
-                        var jqxhr2 = $.getJSON("/listUser", function (data) {
-                            usuarios = data;
+                        console.log("Registrado ok");
+                        $('#regisStatus').hide("slow", function () {
+                            $('#regisStatus').text('Usuario Registrado correctamente.').show("slow");
+                            $('#usernameRG').val("");
+                            $('#nameRG').val("");
+                            $('#emailRG').val("");
+                            $('#pass1RG').val("");
+                            $('#pass2RG').val("");
+                            var jqxhr2 = $.getJSON("/listUser", function (data) {
+                                usuarios = data;
+                            });
+                            Avgrund.show("#default-popup");
                         });
-                        localStorage.setItem("username", dataUser.username);
-                        localStorage.setItem("type", "customer");
-                        alert(localStorage.getItem("username"));
-                        alert(localStorage.getItem("type"));
                     });
                 }
             } else {
@@ -66,7 +78,4 @@ $(document).ready(function () {
             }
         }
     });
-
-
-
 });
