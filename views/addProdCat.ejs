@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/component.css" />
 <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/avgrund.css">
+<link href="css/inputFile.css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
@@ -16,6 +17,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/simpleCart.min.js"> </script>
 <script src="js/addProdCatJS.js"> </script>
+<script src="js/inputFile.js"> </script>
 <script type="text/javascript" src="js/avgrund.js"></script>
 <!-- start menu -->
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
@@ -72,9 +74,8 @@
 		  <li class="active">Agregar Productos y Categorias</li>
 		 </ol>
 		 <h2>Registrar Producto</h2>
-		 <div class="col-md-8 reg-form">
+		 <div class="col-md-6 reg-form">
 			 <div class="reg">
-				 <p>Bienvenido, por favor ingresa los siguientes datos.</p>
 				 <form id="registrationForm">
 					 <ul>
 						 <li class="text-info">Nombre de producto: </li>
@@ -82,7 +83,7 @@
 					 </ul>
 					 <ul>
 						 <li class="text-info">Descripcion: </li>
-						 <li><input type="text" value="" id="description"></li>
+						 <li><textarea type="text" value="" id="description" rows="8" cols="54"></textarea></li>
 					 </ul>				 
 					<ul>
 						 <li class="text-info">Precio: </li>
@@ -92,40 +93,55 @@
 						 <li class="text-info">Categoria: </li>
 						 <li><input type="password" value="" id="category"></li>
 					 </ul>
-					 <ul>
-						 <li class="text-info">imagen 1:</li>
-						 <li><input type="file" value="" id="img1"></li>
-					 </ul>
-					 <ul>
-						 <li class="text-info">imagen 2:</li>
-						 <li><input type="file" value="" id="img2"></li>
-					 </ul>
-					 <ul>
-						 <li class="text-info">imagen 3:</li>
-						 <li><input type="file" value="" id="img3"></li>
-					 </ul>
-					 <ul>
-						 <li class="text-info">imagen 4:</li>
-						 <li><input type="file" value="" id="img4"></li>
-					 </ul>
-					 <ul>
-						 <li class="text-info">imagen 5:</li>
-						 <li><input type="file" value="" id="img5"></li>
-					 </ul>
-					
-					 <input type="button" class="item_add items" value="Registrate ahora!" id="submitbtnProd">
 					 
-				 </form>
+					 <input type="button" class="item_add items" value="Registrar producto" id="submitbtnProd">
 			 </div>
 		 </div>
-		 <div class="col-md-4 reg-right">
+		 <div class="col-md-6 reg-right">
+			<div class="clearfix"></div>
+
+				<div class="input-group image-preview">
+                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;"> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="image-preview-input-title">Browse</span>
+                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                    </div>
+                </span>
+            	</div>
+			<div class="clearfix"></div>
+			<div class="input-group image-preview">
+                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;"> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="image-preview-input-title">Browse</span>
+                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                    </div>
+                </span>
+            	</div>
+
+
+			</div>
+		 </form>
+	
+		 <div class="col-md-6 reg-right">
 			 <h3>Cuenta gratuita</h3>
 			 <p>Al crear esta cuenta tus datos personales solo se utilizan para obtener descuentos en nuestra tienda en linea.</p>
 		 </div>
-		 <div class="col-md-4 reg-right">
+		 <div class="col-md-6 reg-right">
 			 <h3 id="regisProdStatus"></h3>
 		 </div>
+
 		 <div class="clearfix"></div>	
+		 
 		 <ol class="breadcrumb">
 		  <li></li>
 		  <li class="active"></li>

@@ -1916,7 +1916,7 @@ margin-top:2em;
 	width:27%;
 	color:#5d5959;
 	}
-.reg form input[type="text"],.reg form input[type="password"] {
+.reg form input[type="text"],.reg form input[type="password"] ,.reg form textarea[type="text"]{
 	width: 100%;
 	padding: 8px;
 	font-size: 1em;
