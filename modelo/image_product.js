@@ -7,6 +7,6 @@ var productSchema = new Schema({
   url_image_product:String
 });
 
-var Product = mongoose.model('Product', productSchema);
+var imgProduct = mongoose.model('imgProduct', productSchema);
 
-module.exports = User;
+module.exports = imgProduct;

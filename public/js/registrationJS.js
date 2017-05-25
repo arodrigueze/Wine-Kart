@@ -2,7 +2,7 @@ $(document).ready(function () {
     console.log("registro listo para realizar!");
 
     if (localStorage.username) {
-        $('#usernameonpage').text("Bienvenido "+localStorage.username);
+        $('#usernameonpage').text("Bienvenido " + localStorage.username);
     }
 
     var usuarios;

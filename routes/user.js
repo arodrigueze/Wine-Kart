@@ -34,7 +34,7 @@ router.post('/loginUser', function (req, res, next) {
   console.log(datoUser.password);
   User.find(function (err, usuarios) {
     if (err) {
-      console.log("Ha habido error al carcar usuarios");
+      console.log("Ha habido error al cargar usuarios");
       console.log(err);
       res.status(500).send(err)
     } else {

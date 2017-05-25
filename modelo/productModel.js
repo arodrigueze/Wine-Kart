@@ -11,4 +11,4 @@ var productSchema = new Schema({
 
 var Product = mongoose.model('Product', productSchema);
 
-module.exports = User;
+module.exports = Product;

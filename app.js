@@ -16,6 +16,7 @@ var cart     = require('./routes/cart');
 var registration = require('./routes/registration');
 var loginAdmin = require('./routes/loginAdmin');
 var addProdCat = require('./routes/addProdCat');
+var imageProduct = require('./routes/image_product');
 var app      = express();
 
 
@@ -51,6 +52,8 @@ app.use('/',single);
 app.use('/',login);
 app.use('/',registration);
 app.use('/',user);
+app.use('/',imageProduct);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

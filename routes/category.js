@@ -3,10 +3,10 @@ var router = express.Router();
 var Cat = require('../modelo/categoryModel.js');
 
 
-router.get('/createCategory', function (req, res, next) {
+router.post('/createCategory', function (req, res, next) {
+  var datoCategory = JSON.parse(req.body.info);
   var item = {
-    id_category: req.query.id_category,
-    name_category: req.query.name_category.toLowerCase()
+    name_category: datoCategory.categoryName
   }
   var cat = new Cat(item);
   console.log(item);

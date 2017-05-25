@@ -142,7 +142,7 @@ i.arrow{
 .carting ul li a{
 	font-family: Constantine Bold;
 	display:block;
-	color:#ba8e2d;
+	color:white;
 	font-size:12px;
 	font-weight:600;
 	padding:0 8px;
@@ -188,6 +188,7 @@ i.arrow{
 	font-weight:10;
 	margin:0 auto;
 	width:55%;
+	color:#ffffff;
 	
 }
 /*------*/
@@ -215,6 +216,8 @@ i.arrow{
 	text-align:right;
 	padding-top:9em;
 }
+
+
 .sections h4{
 	color:#fff;
 	font-weight:600;
