@@ -109,9 +109,9 @@
 		    	</select>
 		    </div>
             <div class="reg">
-                <form id="registrationFormImagenToProduct">
-
-                <input type="button" class="item_add items" value="Registrar producto" id="submitbtnImagenProducto">
+                <form id="registrationFormImagenToProduct" method='post' action='/uploadImage' enctype='multipart/form-data'>
+                    <input type='file'  name='fotoVino'/>
+                <input type="submit" class="item_add items" value="Subir Imagen" id="submitbtnImagenProducto">
                 </form>
             </div>
         </div>

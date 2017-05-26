@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var categorias;
     var productos;
+    var productoSeleccionado;
     console.log("JS de registro productos y categorias");
     var jqxhr2 = $.getJSON("/listCategory", function (data) {
         categorias = data;
@@ -45,11 +46,6 @@ $(document).ready(function () {
 
     $('#submitbtnProd').click(function () {
         if ($('#name').val().localeCompare("") == 0 || $('#description').val().localeCompare("") == 0 || $('#price').val().localeCompare("") == 0 || $('#listaCategorias').has('option').length == 0) {
-            console.log("Los campos no pueden estar vacios");
-            console.log($('#name').val());
-            console.log($('#description').val());
-            console.log($('#price').val());
-            console.log($('#listaCategorias').has('option').length);
             $('#regisProdStatus').hide("slow", function () {
                 $('#regisProdStatus').text('Los campos no pueden estar vacios.').show("slow");
             });
@@ -148,6 +144,46 @@ $(document).ready(function () {
             }
         }
     });
+
+    $("#registrationFormImagenToProduct").on("submit", function (e) {
+        e.preventDefault();
+        var f = $(this);
+        var productoSeleccionado = $('#listaProductos option:selected').text();
+
+        $('#regisImagenesEstatus').hide("slow", function () {
+            $('#regisImagenesEstatus').text('Cargando Imagen: Espere...').show("slow");
+        });
+        var formData = new FormData(document.getElementById("registrationFormImagenToProduct"));
+        $.ajax({
+            url: "/uploadImage",
+            type: "post",
+            dataType: "html",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function (res) {
+            $('#regisImagenesEstatus').hide("slow", function () {
+                $('#regisImagenesEstatus').text('Imagen cargada con éxito!!!!').show("slow");
+                var urlImage = "images/" + res;
+                console.log(urlImage);
+                var dataProduct = {
+                    name_product: productoSeleccionado,
+                    url_image_product: urlImage
+                };
+                console.log(dataProduct);
+                $.ajax({
+                    method: "POST",
+                    url: "/createImageProduct",
+                    dataType: 'json',
+                    data: { info: JSON.stringify(dataProduct) }
+                });
+
+            });
+        });
+    });
+
+
 
     //-----------------------------------------------------------------------
     //Cargar categorias
