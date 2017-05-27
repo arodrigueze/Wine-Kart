@@ -20,6 +20,7 @@ router.post('/createUser', function (req, res, next) {
     } else {
       console.log("Creado con exito");
       res.send(createdTodoObject);
+      
     }
   });
 });
