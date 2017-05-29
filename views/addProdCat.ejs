@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/avgrund.css">
 <link rel="stylesheet" href="css/style_menu.css">
 <link rel="stylesheet" href="css/styleWineStore.css">
+<link href="css/inputFile.css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="js/jquery.min.js"></script>
@@ -19,6 +20,7 @@
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script type="text/javascript" src="js/avgrund.js"></script>
 <script src="js/addProdCatJS.js"> </script>
+<script src="js/inputFile.js"> </script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <!-- start menu -->
 </head>
@@ -36,6 +38,9 @@
                     <li><a href="#" id="logout"> LOGOUT</a></li>
                 </ul>
             </div>
+            <div class="carting">
+				 <ul><li><a href="/chat" > CONTACTANOS</a></li></ul>
+			</div>
             <div class="logo">
                 <h3><a href="/">WINE STORE</a></h3>
             </div>
@@ -111,7 +116,21 @@
 		    </div>
             <div class="reg">
                 <form id="registrationFormImagenToProduct" method='post' action='/uploadImage' enctype='multipart/form-data'>
-                    <input type='file'  name='fotoVino'/>
+
+				<div class="input-group image-preview">
+                <input name = "archivo1"  type="text" class="form-control image-preview-filename" id="image-preview-filename1" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" id="image-preview-clear1"  style="display:none;"> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="image-preview-input-title" id="image-preview-input-title1" >Browse</span>
+                        <input type='file'  name='fotoVino' accept="image/png, image/jpeg, image/gif"/>
+                    </div>
+                </span>
+            	</div>
+            	<br>
                 <input type="submit" class="item_add items" value="Subir Imagen" id="submitbtnImagenProducto">
                 </form>
             </div>

@@ -134,6 +134,7 @@ i.arrow{
 }
 .carting{
 	float:left;
+	margin-left: 2em;
 	margin-top:2.5em;
 }
 .carting ul li{
