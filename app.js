@@ -21,8 +21,8 @@ var imageProduct = require('./routes/image_product');
 var app = express();
 
 var app2 = require('express')();
-var http = require('http').Server(app2);
-var io = require('socket.io')(http);
+var https = require('https').Server(app2);
+var io = require('socket.io')(https);
 
 io.on('connection', function(socket){
   socket.on('disconnect', function(){
@@ -34,7 +34,7 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(3001, function(){
+https.listen(3001, function(){
   console.log('listening on *:3001');
 });
 
