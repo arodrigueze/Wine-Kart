@@ -3,9 +3,14 @@ $(document).ready(function () {
     var categorias;
     var productos;
     var proImages;
+    var itemAdd;
     var jqxhr1;
     var jqxhr2;
     var jqxhr3;
+
+    if (localStorage.username) {
+        $('#usernameonpage').text("Bienvenido " + localStorage.username);
+    }
 
     jqxhr1 = $.getJSON("/listCategory", function (data) {
         categorias = data;
@@ -13,10 +18,10 @@ $(document).ready(function () {
         $.each(categorias, function (key, val) {
             cargarCategorias(val._id, val.name_category);
         });
-        jqxhr3 = $.getJSON("/listImageProduct", function (data) {
-            proImages = data;
-            jqxhr2 = $.getJSON("/listProducts", function (data) {
-                productos = data;
+        jqxhr3 = $.getJSON("/listImageProduct", function (data1) {
+            proImages = data1;
+            jqxhr2 = $.getJSON("/listProducts", function (data2) {
+                productos = data2;
                 $("#listaProductos").empty();
                 $.each(productos, function (key, val) {
                     cargarProductos(val);
@@ -25,16 +30,23 @@ $(document).ready(function () {
         });
     });
 
-    if (localStorage.username) {
-        $('#usernameonpage').text("Bienvenido " + localStorage.username);
-    }
-
     $('#logout').click(function () {
         localStorage.removeItem("username");
         localStorage.removeItem("type");
         $('#usernameonpage').text("Bienvenido");
+        $("#contenedorProductos").empty();
+        $.each(productos, function (key, val) {
+            cargarProductos(val);
+        });
     });
 
+    //funcion ir a single data
+    $(document).on('click', "a.toSingle", function () {
+        var prodName = $(this).attr('id') + "";
+        localStorage.setItem("singleData", prodName);
+        console.log("Redireccion a single con " + prodName);
+        window.location.replace("/single");
+    });
 
     //-----------------------------------------------------------------------
     //Cargar categorias
@@ -52,22 +64,26 @@ $(document).ready(function () {
     function cargarProductos(producto) {
         var imagen;
         $.each(proImages, function (key, val) {
-            
             if (val.name_product.localeCompare(producto.name_product) == 0) {
                 imagen = val.url_image_product;
                 console.log("Producto " + producto.name_product + " Imagen " + val.url_image_product);
                 return false;
             }
-        }); 
+        });
 
-        var $contenedor = $("<div class='col-sm-4 col-lg-4 col-md-4'></div>");  
-        var $anchor = $("<a href='/single'></a>");  
+        var precioDesc = parseInt(producto.price_product);
+        if (localStorage.type) {
+            precioDesc = producto.price_product - (producto.price_product * 0.1);
+        }
+
+        var $contenedor = $("<div class='col-sm-4 col-lg-4 col-md-4'></div>");
+        var $anchor = $("<a href='#'class='toSingle' id='" + producto.name_product + "'></a>");
         var $moreProduct = $("<div class='more-product'><span> </span></div>");
         var $lowMoreProduct = $("<div class='product-img b-link-stripe b-animate-go  thickbox'></div>");
-        var $imageInsideLP = $("<img src="+imagen+" class='img-responsive'' alt='' />");
+        var $imageInsideLP = $("<img src=" + imagen + " class='img-responsive'' alt='' />");
         var $lowImageInsideLP = $("<div class='b-wrapper'></div>");
         var $h4 = $("<h4 class='b-animate b-from-left  b-delay03'></h4>");
-        var $botonCA = $("<button class='btns'>COMPRA AHORA!</button>");
+        var $botonCA = $("<button class='btns compraAhora'>COMPRA AHORA!</button>");
         $h4.append($botonCA);
         $lowImageInsideLP.append($h4);
         $lowMoreProduct.append($imageInsideLP);
@@ -76,13 +92,13 @@ $(document).ready(function () {
         $anchor.append($lowMoreProduct);
         var $lowAnchor = $("<div class='product-info simpleCart_shelfItem'></div>");
         var $proInfo = $("<div class='product-info-cust prt_name'></div>");
-        var $h4proInfo = $("<h4>"+producto.name_product+"</h4>");
-        var $precio = $("<span class='item_price'>$"+producto.price_product+"</span>");
-        var $agregar = $("<input type='button' class='item_add items' value='ADD'>");
-        var $clearFix =$("<div class='clearfix'> </div>");
+        var $h4proInfo = $("<h5>" + producto.name_product + "</h5>");
+        var totalString = " " + precioDesc.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+        var $precio = $("<span class='item_price'>$" + totalString + "</span><br>");
+
+        var $clearFix = $("<div class='clearfix'> </div>");
         $proInfo.append($h4proInfo);
         $proInfo.append($precio);
-        $proInfo.append($agregar);
         $lowAnchor.append($proInfo);
         $lowAnchor.append($clearFix);
         $contenedor.append($anchor);

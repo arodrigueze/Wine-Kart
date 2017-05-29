@@ -53,7 +53,7 @@ $(document).ready(function () {
             if (!isNaN($('#price').val())) {
                 var productoControl = false;
                 $.each(productos, function (key, val) {
-                    if ($('#usernameRG').val().toLowerCase().localeCompare(val.name_product) == 0)
+                    if ($('#name').val().toLowerCase().localeCompare(val.name_product) == 0)
                         productoControl = true;
                 });
 
@@ -102,6 +102,7 @@ $(document).ready(function () {
     });
 
     $('#submitbtnCategoria').click(function () {
+
         if ($('#nameCategoria').val().localeCompare("") == 0) {
             $('#regisCategoriaStatus').hide("slow", function () {
                 $('#regisCategoriaStatus').text('Los campos no pueden estar vacios.').show("slow");
