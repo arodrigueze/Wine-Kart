@@ -1,7 +1,7 @@
 $(document).ready(function (c) {
 
     //var socket = io.connect("http://localhost:3001");
-    var socket = io.connect("https://winestore.herokuapp.com:3001");
+    var socket = io.connect("https://winestore.herokuapp.com");
     
     //var socket = io();
     socket.on("connect", function (data) {
