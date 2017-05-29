@@ -1,7 +1,7 @@
 
 body{
 	font-family: 'Arimo', sans-serif;
-  	background: #fff;
+  	background: #ffffff;
 	margin:0;
 }
 body a{
@@ -122,7 +122,7 @@ i.arrow{
 }
 .box_1{
 	float:right;
-  width: 23%;
+  width: 25%;
   z-index: 1;
  margin: 28px 0 10px 0;
 }
@@ -151,7 +151,7 @@ i.arrow{
 	display: inline-block;
 	margin: 2em 0;
 	position:absolute;
-	left: 35%;
+	left: 40%;
 }
 .logo h3 a{
 	font-family: Constantine Bold;
@@ -169,14 +169,14 @@ i.arrow{
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
-  top: 40%;
+  top: 45%;
 }
 .caption h1{
 	font-size:6em;
 	font-weight:50;
 	margin-bottom:2px;
 	font-family: 'Yellowtail', cursive;
-	color: #ba8e2d;
+	color: #ba6e2d;
 }
 .caption h4{
 	 color:#64C4B8;
@@ -484,7 +484,7 @@ i.boque{
 	-webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
-	min-height:395px;
+	min-height:300px;
 	padding:3.5em 0;
 }
 .ftr-list{
@@ -603,12 +603,13 @@ i.boque{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size:0.6em;
 	font-weight:200;
-	color:black;
+	color:white;
 	text-decoration:none;
 }
 .fotter-logo{
-background:white;
-padding:1.5em 0;
+background:#cc893e;
+padding:0.3em;
+padding-bottom: 1.5em;
 }
 .ftr-logo{
 float:left;
@@ -623,7 +624,7 @@ padding-top:1em;
 }
 .fotter-logo p{
 	font-family: Arial, Helvetica, sans-serif;
-	color:black;
+	color:white;
 	font-weight:400;
 	font-size:1.2em;
 	margin-top:1em;

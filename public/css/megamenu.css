@@ -7,7 +7,7 @@
     src: url("../fonts/Carolina Mountains Personal Use.ttf");
 }
 
-.megamenu{margin-bottom:0px;padding:0;width:100%;list-style:none;display:inline-block;position:relative;font-size:15px;padding-left: 14%;}
+.megamenu{margin-bottom:0px;padding:0;width:100%;list-style:none;display:inline-block;position:relative;font-size:15px;padding-left: 18%;}
 .megamenu li{margin-bottom:-5px;display:inline}
 .megamenu>li>a{float:left;padding:18px 63.1px;text-decoration:none;text-transform:capitalize;font-size:1em; -webkit-transition: all 0.3s ease-in-out;text-transform:uppercase;
 	-moz-transition: all 0.3s ease-in-out;

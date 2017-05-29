@@ -40,6 +40,36 @@ $(document).ready(function () {
         });
     });
 
+    //filtro menor a 50000
+    $('#filtroMenor100000').click(function () {
+        $("#contenedorProductos").empty();
+        $.each(productos, function (key, val) {
+            if(parseInt(val.price_product)<100000){
+                cargarProductos(val);
+            }
+        });
+    });
+
+    //filtro mayor a 150000
+    $('#mayor150000').click(function () {
+        $("#contenedorProductos").empty();
+        $.each(productos, function (key, val) {
+            if(parseInt(val.price_product)>150000){
+                cargarProductos(val);
+            }
+        });
+    });
+
+    //filtro menor a 50000
+    $('#filtroMenor50000').click(function () {
+        $("#contenedorProductos").empty();
+        $.each(productos, function (key, val) {
+            if(parseInt(val.price_product)<50000){
+                cargarProductos(val);
+            }
+        });
+    });
+
     //funcion ir a single data
     $(document).on('click', "a.toSingle", function () {
         var prodName = $(this).attr('id') + "";
@@ -48,13 +78,24 @@ $(document).ready(function () {
         window.location.replace("/single");
     });
 
+    //funcion cargar cat
+    $(document).on('click', "a.classCategory", function () {
+        var catName = $(this).attr('name') + "";
+        console.log("nombre cat "+catName);
+        $("#contenedorProductos").empty();
+        $.each(productos, function (key, val) {
+            if(catName.localeCompare(val.category_product)==0){
+                cargarProductos(val);
+            }
+        });
+    });
     //-----------------------------------------------------------------------
     //Cargar categorias
     function cargarCategorias(id, name) {
-        var $newAnchor = $("<a></a>");
+        var $newAnchor = $("<a class='classCategory'></a>");
         var $parrafo = $("<p>" + name + "</p>");
-        $newAnchor.attr("href", "#");
         $newAnchor.attr("id", id);
+        $newAnchor.attr("name", name);
         $newAnchor.append($parrafo);
         $("#contenedorCategorias").append($newAnchor);
     }
@@ -94,7 +135,7 @@ $(document).ready(function () {
         var $proInfo = $("<div class='product-info-cust prt_name'></div>");
         var $h4proInfo = $("<h5>" + producto.name_product + "</h5>");
         var totalString = " " + precioDesc.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
-        var $precio = $("<span class='item_price'>$" + totalString + "</span><br>");
+        var $precio = $("<span class='item_price'>$" + totalString + "</span><br><span>"+producto.category_product+"</span><br>");
 
         var $clearFix = $("<div class='clearfix'> </div>");
         $proInfo.append($h4proInfo);

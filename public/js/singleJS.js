@@ -118,17 +118,17 @@ $(document).ready(function () {
         var cont = 0;
         var tott = 0;
         for (i = 0; i < carrito.length; i++) {
-            cont = cont+carrito[i].cantidad;
+            cont = cont+parseInt(carrito[i].cantidad);
             tott = tott +parseInt(carrito[i].precio)*parseInt(carrito[i].cantidad);
             console.log(carrito[i]);
         }
 
         var totTem = " " + tott.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");   
 
-        localStorage.totalplusitems=totTem;
-        localStorage.totalplusitemscount = cont;
-
-        
+        localStorage.removeItem("totalplusitems");
+        localStorage.setItem("totalplusitems",totTem);
+        localStorage.removeItem("totalplusitemscount");
+        localStorage.setItem("totalplusitemscount",cont);    
 
         $('.simpleCart_total').text("$ "+localStorage.totalplusitems);
         $('.simpleCart_quantity').text(localStorage.totalplusitemscount);
@@ -142,10 +142,11 @@ $(document).ready(function () {
         localStorage.removeItem("username");
         localStorage.removeItem("type");
         $('#usernameonpage').text("Bienvenido");
-        var precioDesc = producto.price_product;
+        var precioDesc = parseInt(producto.price_product);
         if (localStorage.type) {
             precioDesc = producto.price_product - (producto.price_product * 0.1);
         }
-        $('#precioProducto').text("$ " + precioDesc);
+        var totTem = " " + precioDesc.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");  
+        $('#precioProducto').text("$ " + totTem);
     });
 });

@@ -94,12 +94,12 @@ $(document).ready(function (c) {
             localStorage.totalplusitemscount = cantidadTemp;
 
             var totTem = " " + parseInt(localStorage.totalplusitems).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
-            $('.simpleCart_total').text(totTem);
+            $('.simpleCart_total').text("$ "+totTem);
             $('.simpleCart_quantity').text(localStorage.totalplusitemscount);
 
             var totalString = " " + total.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
             console.log("total " + totalString);
-            $('#totalPrecio').text(totalString);
+            $('#totalPrecio').text("$ "+totalString);
             var precioDesc = total;
             if (localStorage.type) {
                 precioDesc = total - (total * 0.1);
@@ -109,11 +109,11 @@ $(document).ready(function (c) {
             }
 
             if (precioDesc == 0) {
-                $('#totalFinal').text("0");
+                $('#totalFinal').text("$ 0");
             } else {
                 precioDesc = precioDesc + 5000;
                 var totalString2 = " " + precioDesc.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
-                $('#totalFinal').text(totalString2);
+                $('#totalFinal').text("$ "+totalString2);
             }
         } else {
             $('#totalPrecio').text("0");
