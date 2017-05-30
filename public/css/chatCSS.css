@@ -28,12 +28,13 @@
 .msj{
     float:left;background:white;
 }
+
 .frame{
-    background:#e0e0de;
+    background:#d4d4d4;
+    border-radius: 25px;
     height:450px;
     overflow:hidden;
     padding:0px;
-    margin-left: 37.5%;
 }
 .frame > div:last-of-type{
     position:absolute;bottom:5px;width:100%;display:flex;
@@ -84,4 +85,13 @@ input:focus{
 }
 :-moz-placeholder { /* Firefox 18- */
     color: #d4d4d4;
+}
+.frame mensaje{
+    padding-left: 10px;
+}
+#mensaje1{
+    padding-left: 10px;
+    padding-right: 10px;
+    background:white;
+    margin-left: 30%;
 }

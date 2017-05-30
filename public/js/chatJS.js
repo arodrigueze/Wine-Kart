@@ -1,24 +1,11 @@
 $(document).ready(function (c) {
 
-    //var socket = io.connect("http://localhost:3001");
-    //var socket = io.connect("https://winestore.herokuapp.com");
-    
-    //var socket = io("http://localhost:3000");
     var socket = io();
-/*
-    socket.on("connection", function (data) {
-        console.log(data);
-        socket.emit('chat message', "usuario conectado");
-        return false;
-    });
-*/ 
+
     socket.on('chat message', function (msg) {
         insertChat("you", msg, 0);
     });
     
-
-
-
     var me = {};
     me.avatar = "/images/userchat.png";
 
@@ -83,7 +70,7 @@ $(document).ready(function (c) {
             }
             socket.emit('chat message', text);
         }
-    })
+    });
 
     //-- Clear Chat
     resetChat();
