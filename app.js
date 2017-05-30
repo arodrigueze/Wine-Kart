@@ -20,8 +20,8 @@ var addProdCat = require('./routes/addProdCat');
 var imageProduct = require('./routes/image_product');
 var app = express();
 
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 io.on('connection', function(socket){
   socket.on('disconnect', function(){
@@ -33,14 +33,11 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(3001, function(){
-  console.log('listening on *:3001');
-});
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -93,4 +90,4 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = {app: app, server: server};
