@@ -20,9 +20,8 @@ var addProdCat = require('./routes/addProdCat');
 var imageProduct = require('./routes/image_product');
 var app = express();
 
-var app2 = require('express')();
-var https = require('https').Server(app2);
-var io = require('socket.io')(https);
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 io.on('connection', function(socket){
   socket.on('disconnect', function(){
@@ -34,9 +33,10 @@ io.on('connection', function(socket){
   });
 });
 
-https.listen(3001, function(){
+http.listen(3001, function(){
   console.log('listening on *:3001');
 });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,8 +54,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://vinestoreuser:vinestoreuser@ds123361.mlab.com:23361/vinestoredw", function (err) {
-  console.log("Error de conexion mongodb");
-  console.log(err);
+  if (err) {
+    console.log("Error de conexion mongodb");
+    console.log(err);
+  }
 });
 
 app.use('/', index);
